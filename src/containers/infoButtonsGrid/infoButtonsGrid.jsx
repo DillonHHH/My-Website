@@ -1,18 +1,35 @@
 import React from 'react';
 import { InfoButton } from '../../components';
 import './infoButtonsGrid.css';
-import { githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutterIcon, cppIcon, pythonIcon, javaIcon, unityIcon, davinciIcon, linuxIcon } from '../../assets/images/';
-import { resume } from '../../assets/files';
+import { resume, githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutterIcon, cppIcon, pythonIcon, javaIcon, unityIcon, davinciIcon, linuxIcon } from '../../assets';
 
 const githubLink = 'https://github.com/DillonHHH';
 const linkedinLink = 'https://www.linkedin.com/in/dillon-hines-189012233/';
 const handshakeLink = 'https://app.joinhandshake.com/stu/users/28048837';
 
+
+const onButtonClick = () => {
+    // using Java Script method to get PDF file
+    fetch('SamplePDF.pdf').then(response => {
+        response.blob().then(blob => {
+            // Creating new object of PDF file
+            const fileURL = window.URL.createObjectURL(blob);
+            // Setting various property values
+            let alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'SamplePDF.pdf';
+            alink.click();
+        })
+    })
+}
+
+
+//This array contains all the stuff inside the buttons grid
 const infoButtonsContent = {
     AboutMe: <div className='aboutMeDiv text'>
         <div>
-            <p>Hi, I'm Dillon Hines and my greatest passion is programming! I made this website to show off what I can do to employers and, as I do with all my projects,
-                I put a lot of care into it to ensure it looks great on desktop and mobile, feels responsive, and has a fairly clean codebase. I thought it'd be nice to share
+            <p>Hi, I'm Dillon Hines and my greatest passion is programming! I made this website to show off to employers what I can do and, as I do with all my projects,
+                I put a lot of care into it to ensure it looks great on both desktop and mobile, feels responsive, and has a fairly clean codebase. I also thought it'd be nice to share
                 some things about myself, in case you'd like to know a little more:
             </p>
         </div>
@@ -41,16 +58,16 @@ const infoButtonsContent = {
 
     Connections: <div>
         <div className='iconByTextDiv'>
-            <a href={githubLink} target="_blank" rel="noopener noreferrer"> <img src={githubIcon} className='icon' alt='' /></a>
-            <a href={githubLink} target="_blank" rel="noopener noreferrer" className='iconText'>Github </a>
+            <a href={githubLink} target='_blank' rel='noopener noreferrer'> <img src={githubIcon} className='icon' alt='' /></a>
+            <a href={githubLink} target='_blank' rel='noopener noreferrer' className='iconText'>Github </a>
         </div>
         <div className='iconByTextDiv'>
-            <a href={linkedinLink} target="_blank" rel="noopener noreferrer"> <img src={linkedinIcon} className='icon linkedinIcon' alt='' /></a>
-            <a href={linkedinLink} target="_blank" rel="noopener noreferrer" className='iconText'> LinkedIn </a>
+            <a href={linkedinLink} target='_blank' rel='noopener noreferrer'> <img src={linkedinIcon} className='icon linkedinIcon' alt='' /></a>
+            <a href={linkedinLink} target='_blank' rel='noopener noreferrer' className='iconText'> LinkedIn </a>
         </div>
         <div className='iconByTextDiv'>
-            <a href={handshakeLink} target="_blank" rel="noopener noreferrer"> <img src={handshakeIcon} className='icon handshakeIcon' alt='' /></a>
-            <a href={handshakeLink} target="_blank" rel="noopener noreferrer" className='iconText'> Handshake </a>
+            <a href={handshakeLink} target='_blank' rel='noopener noreferrer'> <img src={handshakeIcon} className='icon handshakeIcon' alt='' /></a>
+            <a href={handshakeLink} target='_blank' rel='noopener noreferrer' className='iconText'> Handshake </a>
         </div>
     </div>,
     Skills: <div>
@@ -126,7 +143,6 @@ const infoButtonsContent = {
     </div>,
 
     ContactMe: <div className='text'>
-        <p> Feel free to contact me through LinkedIn, Handshake, or directly by email: </p>
         <ul>
             <li>
                 <a href="mailto: dillonisaiahhines02@gmail.com"> Email </a>
@@ -134,10 +150,10 @@ const infoButtonsContent = {
                 <p> (dillonisaiahhines02@gmail.com)</p>
             </li>
             <li>
-                <a href={linkedinLink} target="_blank" rel="noopener noreferrer"> LinkedIn </a>
+                <a href={linkedinLink} target='_blank' rel='noopener noreferrer'> LinkedIn </a>
             </li>
             <li>
-                <a href={handshakeLink} target="_blank" rel="noopener noreferrer"> Handshake </a>
+                <a href={handshakeLink} target='_blank' rel='noopener noreferrer'> Handshake </a>
             </li>
         </ul>
     </div>,
@@ -181,10 +197,10 @@ const infoButtonsContent = {
                     My team and I made a trash robot that goes crazy when the trash is full
                     <ul>
                         <li>
-                            It was ontrollable with both a web and Android app, both of which communicated with it using http requests
+                            It was controllable with both a web and Android app, both of which communicated with it using http requests
                         </li>
                         <li>
-                            It used a Raspberry Pi and an Arduino Uno communicating over serial
+                            It used a Raspberry Pi and an Arduino Uno communicating over serial, as well as some small parts such as sensors, motors, LEDs, etc.
                         </li>
                         <li>
                             I handled all of the hardware, including the wiring, serial communication, and programming the Pi with Python and the Arduino with the Arduino programming language
@@ -217,9 +233,9 @@ const infoButtonsContent = {
     </div>,
 
     Resume: <div className='text'>
-            <p><a href={resume} target="_blank" rel="noopener noreferrer"> Click Here to Open</a> </p>
+        <a href={resume} target="_blank" rel="noopener noreferrer"> Click Here to Open </a>
     </div>
-    
+
 
     //add an "extras" section, show off nextjs usage with a simple database app that allow employers to leave their names and a message that will be shown publicly
     //  (will need to include at least basic profanity checking, there's an npm package named profanity filter)
@@ -229,20 +245,20 @@ const infoButtonsContent = {
 
 
 function InfoButtonsGrid(props) {
+
     return (
         <div className='grid wrapper'>
             <InfoButton className='aboutMe' content={infoButtonsContent.AboutMe} buttonText={'About Me'} show='true' />
             <div className='grid'>
                 <InfoButton content={infoButtonsContent.Connections} buttonText={'Connections'} />
-                <InfoButton content={infoButtonsContent.Skills} buttonText={'Skills'} />
-                <InfoButton content={infoButtonsContent.ContactMe} buttonText={'Contact Me'} />
-                <InfoButton content={infoButtonsContent.Resume} buttonText={'Resume'} />
-
-            </div>
-            <div className='grid'>
-                <InfoButton content={infoButtonsContent.Education} buttonText={'Education'} />
                 <InfoButton content={infoButtonsContent.InvolvmentAndLeadership} buttonText={'Involvement and Leadership'} />
                 <InfoButton content={infoButtonsContent.WorkExperience} buttonText={'Work Experience'} />
+                <InfoButton content={infoButtonsContent.ContactMe} buttonText={'Contact Me'} />
+            </div>
+            <div className='grid'>
+                <InfoButton content={infoButtonsContent.Skills} buttonText={'Skills'} />
+                <InfoButton content={infoButtonsContent.Education} buttonText={'Education'} />
+                <InfoButton content={infoButtonsContent.Resume} buttonText={'Resume'} />
             </div>
         </div>
     )

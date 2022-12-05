@@ -1,1 +1,0 @@
-export const resume = require('./resume.pdf');
