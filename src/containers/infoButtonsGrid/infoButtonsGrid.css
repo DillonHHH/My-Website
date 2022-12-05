@@ -1,0 +1,143 @@
+.wrapper {
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    margin: auto;
+}
+
+.grid {
+
+    display: grid;
+    grid-gap: .5rem;
+    grid-auto-rows: min-content;
+}
+
+.aboutMe {
+    grid-column: span 2;
+}
+
+.aboutMeDiv {
+    position: relative;
+    margin: 0 .75rem;
+}
+
+.meImage {
+    position: absolute;
+    width: 25%;
+    bottom: 20%;
+    right: 0;
+}
+
+.iconByTextDiv {
+    display: flex;
+}
+
+.icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.25rem;
+}
+
+.text {
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+
+.iconText{
+    font-size: 2rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: auto;
+    margin-left: 1rem;
+}
+
+.linkedinLogo {
+    width: 3.75rem;
+    height: 3.75rem;
+
+    margin-left: 0.55rem;
+    margin-right: -0.05rem;
+}
+
+.handshakeLogo {
+    width: 3.75rem;
+    height: 3.75rem;
+
+    margin-left: 0.35rem;
+}
+
+.ChildButton {
+    width: 90%;
+    padding: 0 5%;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding-top: 0;
+    margin: .5rem auto;
+    padding: 0 5%;
+}
+
+.note {
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    font-size: 2rem;
+}
+
+
+
+@media (max-width: 1100px) {
+
+    .text{
+        font-size: 1.5rem;
+    }
+
+    .aboutMeDiv {
+        position: relative;
+        margin: 0 .75rem;
+    }
+
+    .meImage {
+        position: static;
+        width: 40%;
+        padding-top: 1rem;
+    }
+
+    .contactMeDiv {
+        text-overflow: wrap;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .wrapper {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .aboutMe {
+        grid-column: span 1;
+    }
+
+    .meImage {
+        position: static;
+        width: 50%;
+        height: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .text{
+        font-size: 1rem;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+}
