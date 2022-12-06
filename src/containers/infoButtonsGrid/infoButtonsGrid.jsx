@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { InfoButton } from '../../components';
 import './infoButtonsGrid.css';
 import { resume, githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutterIcon, cppIcon, pythonIcon, javaIcon, unityIcon, davinciIcon, linuxIcon } from '../../assets';
@@ -6,23 +6,6 @@ import { resume, githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutter
 const githubLink = 'https://github.com/DillonHHH';
 const linkedinLink = 'https://www.linkedin.com/in/dillon-hines-189012233/';
 const handshakeLink = 'https://app.joinhandshake.com/stu/users/28048837';
-
-
-const onButtonClick = () => {
-    // using Java Script method to get PDF file
-    fetch('SamplePDF.pdf').then(response => {
-        response.blob().then(blob => {
-            // Creating new object of PDF file
-            const fileURL = window.URL.createObjectURL(blob);
-            // Setting various property values
-            let alink = document.createElement('a');
-            alink.href = fileURL;
-            alink.download = 'SamplePDF.pdf';
-            alink.click();
-        })
-    })
-}
-
 
 //This array contains all the stuff inside the buttons grid
 const infoButtonsContent = {
@@ -36,7 +19,7 @@ const infoButtonsContent = {
         <br />
         <div className='list text'>
             <big> Hobbies: </big>
-            <ul>
+            <ul className='aboutMeList'>
                 <li> Programming (Who would've guessed?)</li>
                 <li> Gaming </li>
                 <li> Making Games</li>
@@ -45,7 +28,7 @@ const infoButtonsContent = {
             </ul>
             <br />
             <big> Interesting Stuff: </big>
-            <ul>
+            <ul className='aboutMeList'>
                 <li> I speak English fluently, and German at a B1 level </li>
                 <li> I started programming at the age of 12 writing batch scripts </li>
                 <li> My skills are entirely self taught </li>
@@ -59,7 +42,7 @@ const infoButtonsContent = {
     Connections: <div>
         <div className='iconByTextDiv'>
             <a href={githubLink} target='_blank' rel='noopener noreferrer'> <img src={githubIcon} className='icon' alt='' /></a>
-            <a href={githubLink} target='_blank' rel='noopener noreferrer' className='iconText'>Github </a>
+            <a href={githubLink} target='_blank' rel='noopener noreferrer' className='iconText'>GitHub </a>
         </div>
         <div className='iconByTextDiv'>
             <a href={linkedinLink} target='_blank' rel='noopener noreferrer'> <img src={linkedinIcon} className='icon linkedinIcon' alt='' /></a>
@@ -106,16 +89,16 @@ const infoButtonsContent = {
         <InfoButton className='ChildButton' content={
             <div>
                 <div className='iconByTextDiv'>
+                    <img src={linuxIcon} className='icon' alt='' />
+                    <p className='iconText'> Linux </p>
+                </div>
+                <div className='iconByTextDiv'>
                     <img src={unityIcon} className='icon' alt='' />
                     <p className='iconText'> Unity </p>
                 </div>
                 <div className='iconByTextDiv'>
                     <img src={davinciIcon} className='icon' alt='' />
                     <p className='iconText'> Video Editing </p>
-                </div>
-                <div className='iconByTextDiv'>
-                    <img src={linuxIcon} className='icon' alt='' />
-                    <p className='iconText'> Linux </p>
                 </div>
             </div>
 
@@ -189,7 +172,7 @@ const infoButtonsContent = {
                 </li>
             </ul>
         }
-            buttonText='University of Arkansas German Exchange Program'
+            buttonText={<p className='involvmentListButtonText'> University of Arkansas German Exchange Program </p>}
         />
         <InfoButton className='ChildButton' content={
             <ul>
@@ -203,7 +186,7 @@ const infoButtonsContent = {
                             It used a Raspberry Pi and an Arduino Uno communicating over serial, as well as some small parts such as sensors, motors, LEDs, etc.
                         </li>
                         <li>
-                            I handled all of the hardware, including the wiring, serial communication, and programming the Pi with Python and the Arduino with the Arduino programming language
+                            I handled almost all of the hardware including the wiring, serial communication, and programming the Pi with Python and the Arduino with the Arduino programming language
                         </li>
                     </ul>
                 </li>
@@ -212,12 +195,13 @@ const infoButtonsContent = {
                 </li>
             </ul>
         }
-            buttonText='Fall 2022 24-hour Hackathon at the University of Arkansas in Fayetteville'
+            buttonText={<p className='involvmentListButtonText'> Fall 2022 24-hour Hackathon at the University of Arkansas in Fayetteville </p>}
+
         />
         <InfoButton className='ChildButton' content={
             <ul>
                 <li>
-                    My team and I learned Flutter and Github basics
+                    My team and I learned Flutter and GitHub basics
                 </li>
                 <li>
                     We developed a simple cross-platform mobile app
@@ -227,7 +211,7 @@ const infoButtonsContent = {
                 </li>
             </ul>
         }
-            buttonText='Fall 2021 24-hour Hackathon at the University of Arkansas in Fayetteville'
+            buttonText={<p className='involvmentListButtonText'> Fall 2021 24-hour Hackathon at the University of Arkansas in Fayetteville </p>}
         />
 
     </div>,
@@ -245,8 +229,17 @@ const infoButtonsContent = {
 
 
 function InfoButtonsGrid(props) {
+    const [width, setWidth] = useState(window.innerWidth);
+
+    React.useEffect(() => {
+        function handleResize() {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', handleResize)
+    })
 
     return (
+        width > 850 ?
         <div className='grid wrapper'>
             <InfoButton className='aboutMe' content={infoButtonsContent.AboutMe} buttonText={'About Me'} show='true' />
             <div className='grid'>
@@ -261,6 +254,22 @@ function InfoButtonsGrid(props) {
                 <InfoButton content={infoButtonsContent.Resume} buttonText={'Resume'} />
             </div>
         </div>
+
+        :
+
+        // Could have just used css to have a single column on smaller screen, but I wanted the elements to display in a different order as well
+        <div className='grid wrapper'>
+        <InfoButton className='aboutMe' content={infoButtonsContent.AboutMe} buttonText={'About Me'} show='true' />
+        <div className='grid'>
+            <InfoButton content={infoButtonsContent.Skills} buttonText={'Skills'} />
+            <InfoButton content={infoButtonsContent.Education} buttonText={'Education'} />
+            <InfoButton content={infoButtonsContent.InvolvmentAndLeadership} buttonText={'Involvement and Leadership'} />
+            <InfoButton content={infoButtonsContent.WorkExperience} buttonText={'Work Experience'} />
+            <InfoButton content={infoButtonsContent.Connections} buttonText={'Connections'} />
+            <InfoButton content={infoButtonsContent.Resume} buttonText={'Resume'} /> 
+            <InfoButton content={infoButtonsContent.ContactMe} buttonText={'Contact Me'} />
+        </div>
+    </div>
     )
 }
 

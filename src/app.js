@@ -13,7 +13,8 @@ const App = () => {
             <div className='infoButtons'>
                 <InfoButtonsGrid />
             </div>
-            <div className='iconByTextDiv'>
+
+            <div className='iconByTextDiv sourceCodeDiv'>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer"> <img src={githubIcon} className='icon handshakeIcon' alt='' /></a>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer" className='iconText'> Source Code </a>
             </div>
