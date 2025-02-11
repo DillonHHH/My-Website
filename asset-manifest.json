@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/My-Website/static/css/main.4880fb18.css",
+    "main.js": "/My-Website/static/js/main.6c1e5e0c.js",
+    "static/media/linuxIcon.png": "/My-Website/static/media/linuxIcon.473b5b1180d740ee9dbd.png",
+    "static/media/resume.pdf": "/My-Website/static/media/resume.dcc4384c669154d2c9d3.pdf",
+    "static/media/reactIcon.png": "/My-Website/static/media/reactIcon.81ed438b18e24116794d.png",
+    "static/media/me.jpeg": "/My-Website/static/media/me.99c0ac08987fee734711.jpeg",
+    "static/media/davinciIcon.png": "/My-Website/static/media/davinciIcon.9fbf99d71ed0ca5b67d4.png",
+    "static/media/handshakeIcon.png": "/My-Website/static/media/handshakeIcon.d62246f175b4fc6a9e15.png",
+    "static/media/unityIcon.png": "/My-Website/static/media/unityIcon.c341d593d838387a33fe.png",
+    "static/media/c++Icon.png": "/My-Website/static/media/c++Icon.24a8f93854ab092f17a7.png",
+    "static/media/pythonIcon.png": "/My-Website/static/media/pythonIcon.de7b076ea90ec4a763e4.png",
+    "static/media/javaIcon.png": "/My-Website/static/media/javaIcon.f5dd86c3ef6ef3f85acf.png",
+    "static/media/flutterIcon.png": "/My-Website/static/media/flutterIcon.2e31d94a009e134a4804.png",
+    "index.html": "/My-Website/index.html",
+    "main.4880fb18.css.map": "/My-Website/static/css/main.4880fb18.css.map",
+    "main.6c1e5e0c.js.map": "/My-Website/static/js/main.6c1e5e0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4880fb18.css",
+    "static/js/main.6c1e5e0c.js"
+  ]
+}
