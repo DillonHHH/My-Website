@@ -9,11 +9,10 @@ export const reactIcon = require('./images/reactIcon.png');
 export const cppIcon = require('./images/c++Icon.png');
 export const flutterIcon = require('./images/flutterIcon.png');
 export const pythonIcon = require('./images/pythonIcon.png');
-export const javaIcon = require('./images/javaIcon.png');
 
 export const me = require('./images/me.jpeg');
 
 
 
-export const resume = require('./files/resume.pdf');
+export const resume = require('./files/Dillon Hines Resume.pdf');
 

@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import { InfoButton } from '../../components';
 import './infoButtonsGrid.css';
-import { resume, githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutterIcon, cppIcon, pythonIcon, javaIcon, unityIcon, davinciIcon, linuxIcon } from '../../assets';
+import { resume, githubIcon, me, linkedinIcon, handshakeIcon, reactIcon, flutterIcon, cppIcon, pythonIcon, rustIcon, unityIcon, davinciIcon, linuxIcon } from '../../assets';
+import {default as rustLogo} from "../../assets/images/rustLogoBlack.svg"
 
 const githubLink = 'https://github.com/DillonHHH';
-const linkedinLink = 'https://www.linkedin.com/in/dillon-hines-189012233/';
+const linkedinLink = 'https://www.linkedin.com/in/dillon-hines-01001000b01100101b01101100b01101100b01101111b00100001/';
 const handshakeLink = 'https://app.joinhandshake.com/stu/users/28048837';
+const rychigerLink = "https://www.rychiger.com/"
 
 //This array contains all the stuff inside the buttons grid
 const infoButtonsContent = {
@@ -20,18 +22,19 @@ const infoButtonsContent = {
         <div className='list text'>
             <big> Hobbies: </big>
             <ul className='aboutMeList'>
-                <li> Programming (Who would've guessed?)</li>
+                <li> Programming</li>
+                <li> Guitar </li>
                 <li> Gaming </li>
-                <li> Making Games</li>
-                <li> Watching Youtube, Netflix, Hulu etc. </li>
                 <li> Cooking </li>
+                <li> Making Games</li>
             </ul>
             <br />
             <big> Interesting Stuff: </big>
             <ul className='aboutMeList'>
-                <li> I speak English fluently, and German at a B1 level </li>
+                <li> I speak English fluently, and German at a B2 level </li>
                 <li> I started programming at the age of 12 writing batch scripts </li>
                 <li> My skills are entirely self taught </li>
+                <li> I daily-drive Fedora Linux </li>
             </ul>
         </div>
         <div className='contactMeDiv'>
@@ -69,12 +72,12 @@ const infoButtonsContent = {
                     <p className='iconText'> Python </p>
                 </div>
                 <div className='iconByTextDiv'>
-                    <img src={cppIcon} className='icon' alt='' />
-                    <p className='iconText'> C++ </p>
+                    <img src={rustLogo} className='icon' alt='' />
+                    <p className='iconText'> Rust </p>
                 </div>
                 <div className='iconByTextDiv'>
-                    <img src={javaIcon} className='icon' alt='' />
-                    <p className='iconText'> Java </p>
+                    <img src={cppIcon} className='icon' alt='' />
+                    <p className='iconText'> C++ </p>
                 </div>
                 <div>
                     <br />
@@ -132,43 +135,131 @@ const infoButtonsContent = {
                 <br />
                 <p> (dillonisaiahhines02@gmail.com)</p>
             </li>
-            <li>
-                <a href={linkedinLink} target='_blank' rel='noopener noreferrer'> LinkedIn </a>
-            </li>
-            <li>
-                <a href={handshakeLink} target='_blank' rel='noopener noreferrer'> Handshake </a>
-            </li>
         </ul>
     </div>,
 
     WorkExperience: <div className='text'>
-        <ul>
-            <li>
-                Worked as a tech for the Performing Arts Center at the University of Arkansas in Fayetteville
+        <InfoButton className='ChildButton' content={
                 <ul>
                     <li>
-                        Set up the stage for performances and practices
+                        Located in Steffisburg, Switzerland
                     </li>
                     <li>
-                        Managed the lights during performances
+                        Agile workflow
                     </li>
                     <li>
-                        Got to play with giant elevators while moving stage equipment
+                        Effectively worked in a start-up environment
+                    </li>
+                    <ul>
+                        <li>
+                            Built the foundations for new software which revolved around the planning and management of factory
+                            systems, which was deemed a requirement for the company’s future
+
+                        </li>
+                        <li>
+                            Used Docker and Azure Devops to orchestrate our microservice architecture
+                        </li>
+                        <li>
+                            Trained to write better code, including unit testing and readability
+                        </li>
+                    </ul>
+                    <li>
+                        Collaborated with a diverse team specializing in conventional programming, PLC programming, and front-end
+                        design using Ignition
+                    </li>
+                    <ul>
+                        <li>
+                            Gained knowledge of factory systems, including PLC programming and Ignition, while improving my skills
+                            in team communication
+                        </li>
+                    </ul>
+                </ul>
+            }
+                buttonText={<p className='involvmentListButtonText'> Rychiger <br/> Spring-Summer 2024 </p>}
+        />
+        <InfoButton className='ChildButton' content={
+                <ul>
+                    <li>
+                        Located in Arkansas, USA
+                    </li>
+                    <li>
+                        Agile workflow
+                    </li>
+                    <li>
+                        Full stack React developer
+                    </li>
+                    <ul>
+                        <li>
+                            UI: Modified chart designs, added KPIs, and overhauled sections/components of our web pages
+                        </li>
+                        <li>
+                            UX: Added navigation buttons and links
+                        </li>
+                        <li>
+                            Back-end: Wrote queries for MongoDB, moved processing from front-end to back-end
+                        </li>
+                        <li>
+                            Bug-fixing: Fixed various bugs relating to data retrieval and data being processed incorrectly resulting in
+                            bugs in the UI
+                        </li>
+                    </ul>
+                    <li>
+                        Worked with a small team of 6
+                    </li>
+                    <ul>
+                        <li>
+                            Being in such a small team made it easy to ask more experienced developers for help whenever I needed
+                            it, rapidly accelerating my learning and confidence
+                        </li>
+                        <li>
+                        I stayed in contact with our manager, UI designer, and UX tester, often questioning changes and
+                        suggesting my own, resulting in a higher quality app that I could be proud of while also teaching me
+                        valuable facets of each of these roles
+                        </li>
+                    </ul>
+                </ul>
+            }
+                buttonText={<p className='involvmentListButtonText'> SupplyPike <br/> Summer 2023 </p>}
+        />
+
+<InfoButton className='ChildButton' content={
+                <ul>
+                    <li>
+                        Located in Arkansas, USA
+                    </li>
+                    <li>
+                        Worked as a tech at the University of Arkansas in Fayetteville
+                        <ul>
+                            <li>
+                                Set up the stage for performances and practices
+                            </li>
+                            <li>
+                                Managed the lights during performances
+                            </li>
+                            <li>
+                                Got to play with giant elevators while moving stage equipment
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </li>
-        </ul>
+            }
+                buttonText={<p className='involvmentListButtonText'> Performing Arts Center <br/> Spring 2022 </p>}
+        />
+
     </div>,
 
     InvolvmentAndLeadership: <div className='text'>
         <InfoButton className='ChildButton' content={
             <ul>
                 <li>
-                    Learning German
+                    Graduating in 2025 with a Bachelor's in German
                 </li>
                 <li>
-                    Attending the Technische Universität Darmstadt in Germany for my
+                    Attended the Technische Universität Darmstadt in Germany for my
                     2023 - 2024 year of college
+                </li>
+                <li>
+                    Attended an internship with<a href={rychigerLink} target='_blank' rel='noopener noreferrer' className='iconText'>Rychiger</a>
                 </li>
             </ul>
         }
